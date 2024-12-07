@@ -1,0 +1,124 @@
+
+
+.slogan{
+    -fx-background-color:  #48e;
+}
+
+.index{
+    -fx-background-color: linear-gradient(rgb(204, 218, 250), rgb(233, 239, 255));
+    -fx-pref-width: 120;
+}
+
+.btnIndex{
+    -fx-border-color: gray;
+    -fx-pref-width: 120;
+    -fx-pref-height: 55;
+    -fx-font-size: 18;
+    -fx-text-alignment: center;
+    -fx-font-family: sans-serif;
+    -fx-background-color: rgb(149, 183, 255);
+    -fx-text-fill: #eee;
+}
+
+.btnIndex:hover{
+    -fx-background-color: gray;
+    -fx-cursor: hand;
+}
+
+.btnHelp{
+    -fx-background-radius: 50;
+    -fx-border-radius: 60;
+    -fx-border-width: 3;
+    -fx-border-color: rgb(233, 233, 255);
+    -fx-background-color: rgb(0, 153, 255);
+}
+
+.btnHelp:hover{
+    -fx-background-color: rgb(233, 233, 255);
+    -fx-border-color: rgb(0, 153, 255);
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+
+
+.btnCreateAccount{
+    -fx-background-color: rgb(149, 183, 255);
+    -fx-text-fill: #eee;
+    -fx-font-size: 14;
+    -fx-font-family: sans-serif;
+    -fx-border-color: gray;
+}
+
+.btnCreateAccount:hover{
+    -fx-background-color: gray;
+    -fx-text-fill: #eee;
+    -fx-font-size: 14;
+    -fx-font-family: sans-serif;
+    -fx-cursor: hand;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.txtPassword{
+    -fx-font-style: Italic;
+}
+
+.logoImage{
+    -fx-background-radius: 50;
+}
+
+.title{
+    -fx-text-fill: #eee;
+    -fx-font-family: sans-serif;
+    -fx-animated: 1;
+}
+
+.btnExistency{
+    -fx-background-color: rgb(149, 183, 255);
+    -fx-text-fill: #eee;
+    -fx-font-size: 14;
+    -fx-font-family: sans-serif;
+    -fx-border-color: gray;
+}
+.btnExistency:hover{
+    -fx-background-color: gray;
+    -fx-cursor: hand;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+.background{
+    -fx-background-color: linear-gradient(rgb(204, 218, 250), rgb(233, 239, 255));
+}
+.btnPrize{
+    -fx-background-color: rgb(149, 183, 255);
+    -fx-font-size: 14;
+    -fx-font-family: sans-serif;
+    -fx-border-color: gray;
+}
+.btnPrize:hover{
+    -fx-background-color: gray;
+    -fx-cursor: hand;
+    
+}
+.inputForm{
+    -fx-border-color: gray;
+    -fx-font-family: sans-serif;
+}
+
+.btnConfiguration{
+    -fx-background-color: rgb(149, 183, 255);
+    -fx-pref-width: 220;
+    -fx-pref-height: 50;
+    -fx-font-size: 16;
+    -fx-font-family: sans-serif;
+    -fx-border-color: gray;
+    -fx-text-alignment: center;
+}
+.btnConfiguration:hover{
+    -fx-background-color: gray;
+    -fx-cursor: hand;
+}
+.table{
+    -fx-background-color: #e4e3e3;
+    -fx-background-radius: 10;
+}

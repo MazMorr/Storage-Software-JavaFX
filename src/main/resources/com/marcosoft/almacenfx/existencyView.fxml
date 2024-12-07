@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcosoft.almacenfx.ExistencyViewController">
+   <children>
+      <AnchorPane>
+         <children>
+            <HBox alignment="TOP_CENTER" layoutY="6.0" prefWidth="800.0" styleClass="slogan" stylesheets="@Styles.css" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" onMouseClicked="#displayUserConfig" prefHeight="87.0" prefWidth="134.0" style="-fx-cursor: hand;">
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
+                           <children>
+                              <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/Avatar.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label text="1234567890123456" textFill="#eeeeee">
+                           <font>
+                              <Font name="SansSerif Regular" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="87.0" prefWidth="432.0" styleClass="title" stylesheets="@Styles.css" text="Existencias" textFill="WHITE">
+                     <font>
+                        <Font name="Constantia Bold Italic" size="60.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <VBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="136.0">
+                     <children>
+                        <Label text="Balance USD">
+                           <font>
+                              <Font name="SansSerif Bold" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Label text="1700000" textFill="#38ff01">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="17000000" textFill="RED">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </HBox>
+            <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="82.0" prefHeight="600.0" prefWidth="110.0" styleClass="index" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#switchToSupport" styleClass="btnIndex" stylesheets="@Styles.css" text="Soporte">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button disable="true" ellipsisString="" mnemonicParsing="false" prefWidth="127.0" styleClass="btnIndex" stylesheets="@Styles.css" text="Existencias">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#switchToRegistry" styleClass="btnIndex" stylesheets="@Styles.css" text="Registros">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="276.0" prefWidth="120.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#switchToConfiguration" styleClass="btnIndex" stylesheets="@Styles.css" text="Ajustes" textFill="#eeeeee">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+            <TableView fx:id="tblExistency" editable="true" layoutX="146.0" layoutY="113.0" prefHeight="361.0" prefWidth="665.0" styleClass="table" stylesheets="@Styles.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0">
+               <columns>
+                  <TableColumn fx:id="idTable" prefWidth="37.0" style="-fx-background-color: #90b7f1;" text="ID" />
+                  <TableColumn fx:id="nameTable" prefWidth="108.0" style="-fx-background-color: #90b7f1;" text="Nombre" />
+                  <TableColumn fx:id="productTypeTable" prefWidth="62.0" style="-fx-background-color: #90b7f1;" text="Categoría" />
+                  <TableColumn fx:id="amountTable" prefWidth="57.0" style="-fx-background-color: #90b7f1;" text="Cantidad" />
+                  <TableColumn fx:id="dateTable" prefWidth="86.0" style="-fx-background-color: #90b7f1;" text="Fecha" />
+                  <TableColumn fx:id="prizeTable" prefWidth="54.0" style="-fx-background-color: #90b7f1;" text="Precio" />
+                  <TableColumn fx:id="coinTable" prefWidth="53.0" style="-fx-background-color: #90b7f1;" text="Moneda" />
+                  <TableColumn fx:id="inOutTable" prefWidth="83.0" style="-fx-background-color: #90b7f1;" text="buy/sell" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <HBox layoutX="130.0" layoutY="452.0" prefHeight="132.0" prefWidth="665.0" spacing="20.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="5.0">
+               <children>
+                  <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#displayBuyView" styleClass="btnExistency" stylesheets="@Styles.css" text="Agregar Producto">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#displaySellView" styleClass="btnExistency" stylesheets="@Styles.css" text="Vender Producto " />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="161.0" prefWidth="205.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="btnExistency" stylesheets="@Styles.css" text="Cambiar Producto">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" styleClass="btnExistency" stylesheets="@Styles.css" text="Eliminar Producto" />
+                        <Label ellipsisString="" prefHeight="41.0" prefWidth="268.0" text="Advertencia: El botón eliminar literalmente elimina el registro seleccionado por completo" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="107.0" prefWidth="163.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label text="Filtrar por:">
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="SansSerif Regular" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnFilter" mnemonicParsing="false" onAction="#displayFilterView" styleClass="btnExistency" stylesheets="@Styles.css" text="Filtro">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
