@@ -21,25 +21,9 @@
 }
 
 .btnIndex:hover{
-    -fx-background-color: gray;
+    -fx-opacity: 0.6;
     -fx-cursor: hand;
 }
-
-.btnHelp{
-    -fx-background-radius: 50;
-    -fx-border-radius: 60;
-    -fx-border-width: 3;
-    -fx-border-color: rgb(233, 233, 255);
-    -fx-background-color: rgb(0, 153, 255);
-}
-
-.btnHelp:hover{
-    -fx-background-color: rgb(233, 233, 255);
-    -fx-border-color: rgb(0, 153, 255);
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-}
-
 
 .btnCreateAccount{
     -fx-background-color: rgb(149, 183, 255);
@@ -50,7 +34,7 @@
 }
 
 .btnCreateAccount:hover{
-    -fx-background-color: gray;
+    -fx-opacity: 0.6;
     -fx-text-fill: #eee;
     -fx-font-size: 14;
     -fx-font-family: sans-serif;
@@ -81,7 +65,7 @@
     -fx-border-color: gray;
 }
 .btnExistency:hover{
-    -fx-background-color: gray;
+    -fx-opacity: 0.6;
     -fx-cursor: hand;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
@@ -96,7 +80,7 @@
     -fx-border-color: gray;
 }
 .btnPrize:hover{
-    -fx-background-color: gray;
+    -fx-opacity: 0.6;
     -fx-cursor: hand;
     
 }
@@ -105,20 +89,14 @@
     -fx-font-family: sans-serif;
 }
 
-.btnConfiguration{
-    -fx-background-color: rgb(149, 183, 255);
-    -fx-pref-width: 220;
-    -fx-pref-height: 50;
-    -fx-font-size: 16;
-    -fx-font-family: sans-serif;
-    -fx-border-color: gray;
-    -fx-text-alignment: center;
-}
-.btnConfiguration:hover{
-    -fx-background-color: gray;
-    -fx-cursor: hand;
-}
 .table{
     -fx-background-color: #e4e3e3;
     -fx-background-radius: 10;
+}
+.configuration{
+    -fx-cursor:hand;
+}
+.menuIndex:hover{
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10.0, 0.0, 0.0, 0.0);
 }

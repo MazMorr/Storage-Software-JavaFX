@@ -7,6 +7,7 @@ com\marcosoft\almacenfx\AccountViewController.class
 com\marcosoft\almacenfx\SupportViewController.class
 module-info.class
 com\marcosoft\almacenfx\RunMain.class
+com\marcosoft\almacenfx\Logic\WindowShowing.class
 com\marcosoft\almacenfx\Logic\Product.class
 com\marcosoft\almacenfx\App.class
 com\marcosoft\almacenfx\SellViewController.class

@@ -1,103 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcosoft.almacenfx.ConfigurationViewController">
+<StackPane prefHeight="180.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcosoft.almacenfx.ConfigurationViewController">
    <children>
       <AnchorPane>
          <children>
-            <HBox layoutY="6.0" styleClass="slogan" stylesheets="@Styles.css" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="127.0" style="-fx-cursor: hand;">
-                     <children>
-                        <HBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
-                           <children>
-                              <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true">
-                                 <image>
-                                    <Image url="@images/Avatar.png" />
-                                 </image>
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                           </children>
-                        </HBox>
-                        <Label text="1234567890123456" textFill="#eeeeee">
-                           <font>
-                              <Font name="SansSerif Regular" size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <Label fx:id="txtTitleAdjust" alignment="CENTER" contentDisplay="CENTER" prefHeight="87.0" prefWidth="432.0" styleClass="title" stylesheets="@Styles.css" text="Ajustes">
-                     <font>
-                        <Font name="Constantia Bold Italic" size="60.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </HBox>
-            <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="131.0" styleClass="index" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Button fx:id="btnSupportAdjust" mnemonicParsing="false" onAction="#switchToSupport" styleClass="btnIndex" stylesheets="@Styles.css" text="Soporte">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="btnExistencyAdjust" ellipsisString="" mnemonicParsing="false" onAction="#switchToExistency" prefWidth="127.0" styleClass="btnIndex" stylesheets="@Styles.css" text="Existencias" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnRegistryAdjust" mnemonicParsing="false" onAction="#switchToRegistry" styleClass="btnIndex" stylesheets="@Styles.css" text="Registros" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                  </Button>
-                  <VBox alignment="BOTTOM_CENTER" prefHeight="276.0" prefWidth="120.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Button fx:id="btnAdjustAdjust" disable="true" mnemonicParsing="false" styleClass="btnIndex" stylesheets="@Styles.css" text="Ajustes" textAlignment="CENTER" textFill="#eeeeee" wrapText="true">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </VBox>
-               </children>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </VBox>
-            <VBox alignment="TOP_CENTER" layoutX="134.0" layoutY="101.0" prefHeight="291.0" prefWidth="490.0" spacing="25.0" AnchorPane.leftAnchor="134.0">
+            <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="101.0" prefHeight="153.0" prefWidth="330.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <MenuButton fx:id="mbLanguage" alignment="CENTER" mnemonicParsing="false" styleClass="btnConfiguration" stylesheets="@Styles.css" text="Idioma" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
+                        <MenuButton fx:id="mbLanguage" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Idioma" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
                           <items>
                               <RadioMenuItem mnemonicParsing="false" onAction="#switchLanguageToSpanish" selected="true" text="Español">
                                  <toggleGroup>
@@ -107,47 +28,38 @@
                               <RadioMenuItem mnemonicParsing="false" onAction="#switchLanguageToEnglish" text="English" toggleGroup="$rdmiLanguage" />
                           </items>
                         </MenuButton>
-                        <MenuButton fx:id="mbUsers" alignment="CENTER" mnemonicParsing="false" styleClass="btnConfiguration" stylesheets="@Styles.css" text="Cuentas" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
+                        <MenuButton fx:id="mbUsers" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Cuentas" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
                           <items>
                               <MenuItem fx:id="miChangeUser" mnemonicParsing="false" text="Crear Cuenta" />
                               <RadioMenuItem mnemonicParsing="false" text="-Usuario actual-" />
                           </items>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets left="30.0" />
                            </HBox.margin>
                         </MenuButton>
                      </children>
                   </HBox>
                   <HBox>
                      <children>
-                        <Button mnemonicParsing="false" styleClass="btnConfiguration" stylesheets="@Styles.css" text="Pantalla Completa" textFill="#eeeeee">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox>
-                     <children>
-                        <MenuButton alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" styleClass="btnConfiguration" stylesheets="@Styles.css" text="Importar" textFill="#eeeeee">
+                        <MenuButton alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Importar" textFill="#eeeeee">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Action 1" />
                             <MenuItem mnemonicParsing="false" text="Action 2" />
                           </items>
                         </MenuButton>
-                        <MenuButton alignment="CENTER" mnemonicParsing="false" styleClass="btnConfiguration" stylesheets="@Styles.css" text="Exportar" textAlignment="CENTER" textFill="#eeeeee">
+                        <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Exportar" textAlignment="CENTER" textFill="#eeeeee">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Exportar Base de Datos" />
                             <MenuItem mnemonicParsing="false" text="Action 2" />
                           </items>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets left="30.0" />
                            </HBox.margin>
                         </MenuButton>
                      </children></HBox>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <MenuButton fx:id="mbAppTheme" alignment="CENTER" mnemonicParsing="false" prefWidth="206.0" styleClass="btnConfiguration" stylesheets="@Styles.css" text="Tema de Aplicación" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
+                        <MenuButton fx:id="mbAppTheme" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Tema" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
                           <items>
                               <RadioMenuItem fx:id="rdmiLightTheme" mnemonicParsing="false" selected="true" text="Modo Claro">
                                  <toggleGroup>
@@ -157,7 +69,7 @@
                               <RadioMenuItem fx:id="rdmiDarkTheme" mnemonicParsing="false" text="Modo Oscuro" toggleGroup="$rdmiTheme" />
                           </items>
                         </MenuButton>
-                        <MenuButton fx:id="mbResolution" alignment="CENTER" mnemonicParsing="false" styleClass="btnConfiguration" stylesheets="@Styles.css" text="Resolución" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
+                        <MenuButton fx:id="mbResolution" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Resolución" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
                           <items>
                               <RadioMenuItem mnemonicParsing="false" selected="true" text="800x600">
                                  <toggleGroup>
@@ -168,18 +80,13 @@
                               <RadioMenuItem mnemonicParsing="false" text="1920x1980" toggleGroup="$rdmiResolution" />
                           </items>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets left="30.0" />
                            </HBox.margin>
                         </MenuButton>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <ImageView fitHeight="181.0" fitWidth="236.0" layoutX="564.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/RTS_logo.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>

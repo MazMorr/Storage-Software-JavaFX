@@ -15,9 +15,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("accountView"), 450, 350);
+        scene = new Scene(loadFXML("accountView"));
         stage.setScene(scene);
-        stage.getIcons().add(new Image("com/marcosoft/almacenfx/images/RTS_logo.png"));
+        stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/RTS_logo.png"));
         stage.setResizable(false);
         stage.setTitle("Sistema de cuentas");
         stage.centerOnScreen();

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.ImageInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,32 +19,39 @@
    <children>
       <AnchorPane>
          <children>
-            <HBox alignment="TOP_CENTER" layoutY="6.0" prefWidth="800.0" styleClass="slogan" stylesheets="@Styles.css" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox fx:id="vboxSlogan" alignment="TOP_CENTER" layoutY="6.0" prefWidth="800.0" styleClass="slogan" stylesheets="@Styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <VBox alignment="TOP_CENTER" onMouseClicked="#displayUserConfig" prefHeight="87.0" prefWidth="134.0" style="-fx-cursor: hand;">
+                  <HBox prefWidth="200.0">
                      <children>
-                        <HBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
+                        <VBox prefHeight="87.0" prefWidth="189.0">
                            <children>
-                              <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/Avatar.png" />
-                                 </image>
+                              <Button mnemonicParsing="false" onAction="#displayConfigurationView" prefHeight="49.0" prefWidth="52.0" styleClass="configuration" stylesheets="@Styles.css" text="Button">
                                  <effect>
-                                    <DropShadow />
+                                    <ImageInput>
+                                       <source>
+                                          <Image url="file:/D:/Proyectos/Proyectos%20Java/AlmacenMipyme/src/main/resources/com/marcosoft/almacenfx/images/gears.png" />
+                                       </source>
+                                    </ImageInput>
                                  </effect>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </ImageView>
+                                 <VBox.margin>
+                                    <Insets left="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Label text="Marco A. Romero Albanez" textFill="#323131" wrapText="true">
+                                 <font>
+                                    <Font name="SansSerif Bold Italic" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" top="15.0" />
+                                 </VBox.margin>
+                              </Label>
                            </children>
-                        </HBox>
-                        <Label text="1234567890123456" textFill="#eeeeee">
-                           <font>
-                              <Font name="SansSerif Regular" size="14.0" />
-                           </font>
-                        </Label>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
                      </children>
-                  </VBox>
+                  </HBox>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="87.0" prefWidth="432.0" styleClass="title" stylesheets="@Styles.css" text="Existencias" textFill="WHITE">
                      <font>
                         <Font name="Constantia Bold Italic" size="60.0" />
@@ -52,38 +60,42 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <VBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="136.0">
+                  <HBox alignment="TOP_RIGHT" prefWidth="200.0">
                      <children>
-                        <Label text="Balance USD">
-                           <font>
-                              <Font name="SansSerif Bold" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="136.0">
                            <children>
-                              <Label text="1700000" textFill="#38ff01">
+                              <Label text="Balance USD">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="SansSerif Bold" size="16.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
                               </Label>
-                              <Label text="17000000" textFill="RED">
-                                 <font>
-                                    <Font name="SansSerif Bold" size="14.0" />
-                                 </font>
-                              </Label>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                                 <children>
+                                    <Label text="17000000" textFill="#38ff01">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="17000000" textFill="RED">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
-                  </VBox>
+                  </HBox>
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </HBox>
-            <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="82.0" prefHeight="600.0" prefWidth="110.0" styleClass="index" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="vboxIndex" layoutX="-9.0" layoutY="88.0" styleClass="index" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="88.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#switchToSupport" styleClass="btnIndex" stylesheets="@Styles.css" text="Soporte">
                      <font>
@@ -93,7 +105,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button disable="true" ellipsisString="" mnemonicParsing="false" prefWidth="127.0" styleClass="btnIndex" stylesheets="@Styles.css" text="Existencias">
+                  <Button disable="true" ellipsisString="" mnemonicParsing="false" styleClass="btnIndex" stylesheets="@Styles.css" text="Existencias">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -106,36 +118,24 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <VBox alignment="BOTTOM_CENTER" prefHeight="276.0" prefWidth="120.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#switchToConfiguration" styleClass="btnIndex" stylesheets="@Styles.css" text="Ajustes" textFill="#eeeeee">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </VBox>
                </children>
-               <effect>
-                  <DropShadow />
-               </effect>
             </VBox>
-            <TableView fx:id="tblExistency" editable="true" layoutX="146.0" layoutY="113.0" prefHeight="361.0" prefWidth="665.0" styleClass="table" stylesheets="@Styles.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0">
+            <TableView fx:id="tblExistency" editable="true" layoutX="125.0" layoutY="90.0" onMouseClicked="#displayConfigurationView" prefHeight="375.0" prefWidth="670.0" styleClass="table" stylesheets="@Styles.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0">
                <columns>
-                  <TableColumn fx:id="idTable" prefWidth="37.0" style="-fx-background-color: #90b7f1;" text="ID" />
-                  <TableColumn fx:id="nameTable" prefWidth="108.0" style="-fx-background-color: #90b7f1;" text="Nombre" />
-                  <TableColumn fx:id="productTypeTable" prefWidth="62.0" style="-fx-background-color: #90b7f1;" text="Categoría" />
-                  <TableColumn fx:id="amountTable" prefWidth="57.0" style="-fx-background-color: #90b7f1;" text="Cantidad" />
-                  <TableColumn fx:id="dateTable" prefWidth="86.0" style="-fx-background-color: #90b7f1;" text="Fecha" />
-                  <TableColumn fx:id="prizeTable" prefWidth="54.0" style="-fx-background-color: #90b7f1;" text="Precio" />
-                  <TableColumn fx:id="coinTable" prefWidth="53.0" style="-fx-background-color: #90b7f1;" text="Moneda" />
-                  <TableColumn fx:id="inOutTable" prefWidth="83.0" style="-fx-background-color: #90b7f1;" text="buy/sell" />
+                  <TableColumn fx:id="idTable" prefWidth="37.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="ID" />
+                  <TableColumn fx:id="nameTable" prefWidth="117.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Nombre" />
+                  <TableColumn fx:id="productTypeTable" prefWidth="92.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Categoría" />
+                  <TableColumn fx:id="amountTable" prefWidth="57.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Cantidad" />
+                  <TableColumn fx:id="dateTable" prefWidth="86.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Fecha" />
+                  <TableColumn fx:id="prizeTable" prefWidth="54.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Precio" />
+                  <TableColumn fx:id="coinTable" prefWidth="53.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Moneda" />
+                  <TableColumn fx:id="inOutTable" prefWidth="83.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="buy/sell" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <HBox layoutX="130.0" layoutY="452.0" prefHeight="132.0" prefWidth="665.0" spacing="20.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="5.0">
+            <HBox layoutX="125.0" layoutY="465.0" prefHeight="132.0" prefWidth="665.0" spacing="20.0">
                <children>
                   <VBox spacing="10.0" HBox.hgrow="ALWAYS">
                      <children>
@@ -155,11 +155,23 @@
                            </VBox.margin>
                         </Button>
                         <Button mnemonicParsing="false" styleClass="btnExistency" stylesheets="@Styles.css" text="Eliminar Producto" />
-                        <Label ellipsisString="" prefHeight="41.0" prefWidth="268.0" text="Advertencia: El botón eliminar literalmente elimina el registro seleccionado por completo" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="SansSerif Bold" size="12.0" />
-                           </font>
-                        </Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="47.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/icons8-services-48.png" />
+                                 </image>
+                              </ImageView>
+                              <Label ellipsisString="" prefHeight="41.0" prefWidth="186.0" text="El botón eliminar literalmente elimina el registro" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">

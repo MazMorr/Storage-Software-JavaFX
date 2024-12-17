@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcosoft.almacenfx.RegistryFilterController">
+<StackPane prefHeight="190.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcosoft.almacenfx.RegistryFilterViewController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="260.0" styleClass="background" stylesheets="@Styles.css">
+      <AnchorPane styleClass="background" stylesheets="@Styles.css">
          <children>
-            <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="7.0" prefHeight="182.0" prefWidth="246.0">
+            <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="7.0" prefHeight="182.0" prefWidth="246.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                <children>
                   <Label text="Filtrar por:">
                      <font>
@@ -37,7 +37,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <TextField prefHeight="28.0" prefWidth="134.0" promptText="Nombre" styleClass="inputForm" stylesheets="@Styles.css" />
+                        <TextField prefHeight="28.0" prefWidth="138.0" promptText="Nombre" styleClass="inputForm" stylesheets="@Styles.css" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="246.0">
@@ -85,7 +85,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <TextField prefHeight="28.0" prefWidth="97.0" promptText="SubCategoría" styleClass="inputForm" stylesheets="@Styles.css" />
+                        <TextField prefHeight="28.0" prefWidth="97.0" promptText="Compra/Venta" styleClass="inputForm" stylesheets="@Styles.css" />
                         <MenuButton mnemonicParsing="false" styleClass="btnPrize">
                            <items>
                               <MenuItem mnemonicParsing="false" text="Action 1" />
