@@ -11,8 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 
 public class RegistryViewController implements Initializable {
-    private WindowShowing windowShowing;
-    private SceneSwitcher sceneSwitcher;
+    private final WindowShowing windowShowing;
+    private final SceneSwitcher sceneSwitcher;
     
     public RegistryViewController(){
         windowShowing= new WindowShowing();

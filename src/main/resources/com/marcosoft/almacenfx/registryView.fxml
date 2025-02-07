@@ -120,7 +120,6 @@
             </VBox>
             <TableView fx:id="tblView" editable="true" layoutX="148.0" layoutY="93.0" onMouseClicked="#selected" prefHeight="397.0" prefWidth="669.0" styleClass="table" stylesheets="@Styles.css" tableMenuButtonVisible="true" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0">
               <columns>
-                <TableColumn prefWidth="37.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="ID" />
                 <TableColumn prefWidth="113.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Nombre" />
                   <TableColumn prefWidth="90.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Categoría" />
                   <TableColumn prefWidth="61.0" style="-fx-background-color: #90b7f1; -fx-border-color: #eee;" text="Cantidad" />

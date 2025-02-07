@@ -16,7 +16,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class AccountViewController{
-    private WindowShowing windowShowing;
+    private final WindowShowing windowShowing;
     
     public AccountViewController(){
         windowShowing= new WindowShowing();
@@ -37,7 +37,7 @@ public class AccountViewController{
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/RTS_logo.png"));
+            stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
             stage.setTitle("Almacen");
             stage.centerOnScreen();
             stage.setResizable(false);

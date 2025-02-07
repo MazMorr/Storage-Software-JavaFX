@@ -18,7 +18,7 @@ import javafx.stage.StageStyle;
 
 /**
  *
- * @author Usuario
+ * @author MazMorr
  */
 public class WindowShowing {
     private static WindowShowing instance;
@@ -28,7 +28,7 @@ public class WindowShowing {
     private boolean filterViewShowing;
     private boolean configurationShowing;
     private boolean registryFilterViewShowing;
-    private List<Stage> openStages = new ArrayList();
+    private final List<Stage> openStages = new ArrayList();
 
     public WindowShowing() {
     }
@@ -99,12 +99,12 @@ public class WindowShowing {
                 stage.initStyle(StageStyle.DECORATED); //Configura el estilo de la ventana
                 stage.setResizable(false);
                 stage.setScene(scene);
-                stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/RTS_logo.png"));
+                stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                 openStages.add(stage);
                 
                 if(auxView==0){
                     setSellViewShowing(true);
-                    stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/RTS_logo.png"));
+                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Ventas");
 
                     stage.setOnCloseRequest(eh ->{
@@ -112,7 +112,7 @@ public class WindowShowing {
                     });
                 } else if(auxView==1){
                     setBuyViewShowing(true);
-                    stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/RTS_logo.png"));
+                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Compras");
                 
                     stage.setOnCloseRequest(eh ->{
@@ -120,7 +120,7 @@ public class WindowShowing {
                     });       
                 } else if(auxView==2){
                     setFilterViewShowing(true);
-                    stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/RTS_logo.png"));
+                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Filtro de Existencias");
                 
                     stage.setOnCloseRequest(eh ->{
@@ -128,7 +128,7 @@ public class WindowShowing {
                     });       
                 } else if(auxView==3){
                     setConfigurationShowing(true);
-                    stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/gears.png"));
+                    stage.getIcons().add(new Image("file:resources/images/gears.png"));
                     stage.setTitle("Ajustes");
                         
                     stage.setOnCloseRequest(eh ->{
@@ -136,7 +136,7 @@ public class WindowShowing {
                     });       
                 } else if(auxView==4){
                     setRegistryFilterViewShowing(true);
-                    stage.getIcons().add(new Image("/com/marcosoft/almacenfx/images/RTS_logo.png"));
+                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Filtro de Registros");
                 
                     stage.setOnCloseRequest(eh ->{

@@ -1,6 +1,6 @@
 package com.marcosoft.almacenfx;
 
-import com.marcosoft.almacenfx.Logic.Product;
+import com.marcosoft.almacenfx.Logic.Cuenta;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -22,9 +22,9 @@ public class BuyViewController implements Initializable{
     @FXML private TextField txtFieldSubCategory, txtFieldPrize, txtFieldAmount, txtFieldName;
     @FXML private DatePicker txtFieldDate;
     @FXML private RadioMenuItem rmiCUP, rmiUSD, rmiEUR, rmiMLC;
-    private ObservableList<Product> products;
+    private ObservableList<Cuenta> products;
     
-    private Product product;
+    private Cuenta product;
        
     @FXML
     private void setTextChangedName(){
@@ -151,11 +151,11 @@ public class BuyViewController implements Initializable{
 
     }
     
-    public Product getProduct() {
+    public Cuenta getProduct() {
         return product;
     }
     
-    public void initAtributtes(ObservableList<Product> products){
+    public void initAtributtes(ObservableList<Cuenta> products){
         this.products=products;
     }
     

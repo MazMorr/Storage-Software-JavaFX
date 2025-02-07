@@ -13,8 +13,8 @@ import javafx.scene.input.MouseEvent;
 public class SupportViewController {
     public boolean configurationShowing;
     private AccountViewController accountController;
-    private WindowShowing windowShowing;
-    private SceneSwitcher sceneSwitcher;
+    private final WindowShowing windowShowing;
+    private final SceneSwitcher sceneSwitcher;
     
     public void setAccountController(AccountViewController accountController) {
         this.accountController = accountController;

@@ -1,7 +1,7 @@
 
 package com.marcosoft.almacenfx;
 
-import com.marcosoft.almacenfx.Logic.Product;
+import com.marcosoft.almacenfx.Logic.Cuenta;
 import com.marcosoft.almacenfx.Logic.SceneSwitcher;
 import com.marcosoft.almacenfx.Logic.WindowShowing;
 import java.io.IOException;
@@ -14,11 +14,11 @@ import javafx.scene.control.TableView;
 public class ExistencyViewController  {
     
     @FXML Button btnFilter;
-    @FXML TableView<Product> tblExistency;
-    private ObservableList<Product> product;
+    @FXML TableView<Cuenta> tblExistency;
+    private ObservableList<Cuenta> product;
     
-    private WindowShowing windowShowing;
-    private SceneSwitcher sceneSwitcher;
+    private final WindowShowing windowShowing;
+    private final SceneSwitcher sceneSwitcher;
 
     public ExistencyViewController() {
         windowShowing= new WindowShowing();
