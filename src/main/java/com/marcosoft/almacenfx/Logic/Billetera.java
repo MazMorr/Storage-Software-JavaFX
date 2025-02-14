@@ -3,6 +3,7 @@ package com.marcosoft.almacenfx.Logic;
 
 import java.math.BigDecimal;
 import jakarta.persistence.*;
+import java.io.Serializable;
 
 /**
  *
@@ -10,7 +11,7 @@ import jakarta.persistence.*;
  */
 @Entity
 @Table(name= "billetera")
-public class Billetera {
+public class Billetera implements Serializable {
     //Attributes
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

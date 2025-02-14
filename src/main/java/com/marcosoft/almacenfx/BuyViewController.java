@@ -3,6 +3,8 @@ package com.marcosoft.almacenfx;
 import com.marcosoft.almacenfx.Logic.Cuenta;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.marcosoft.almacenfx.Logic.LogicPersistenceController;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -22,7 +25,9 @@ public class BuyViewController implements Initializable{
     @FXML private TextField txtFieldSubCategory, txtFieldPrize, txtFieldAmount, txtFieldName;
     @FXML private DatePicker txtFieldDate;
     @FXML private RadioMenuItem rmiCUP, rmiUSD, rmiEUR, rmiMLC;
+    @FXML private ProgressIndicator percentageBar;
     private ObservableList<Cuenta> products;
+    LogicPersistenceController lpcontroller = new LogicPersistenceController();
     
     private Cuenta product;
        
@@ -79,6 +84,7 @@ public class BuyViewController implements Initializable{
             }
         
             // If all validations pass, confirm successful addition
+            lpcontroller.addProduct();
             txtDebugForm.setText("Su producto ha sido añadido exitosamente");
         
         } catch (Exception e) {

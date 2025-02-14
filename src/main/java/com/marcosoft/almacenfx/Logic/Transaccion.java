@@ -1,55 +1,53 @@
 package com.marcosoft.almacenfx.Logic;
 
+import jakarta.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import jakarta.persistence.*;
 
-/**
- *
- * @author MazMorr
- */
 @Entity
-@Table(name= "Transaccion")
-public class Transaccion {
-    //Atributes
+@Table(name="Transaccion")
+public class Transaccion implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idTransaccion;
-    
-    @ManyToOne
-    @JoinColumn(name="id_cuenta", nullable= false)
-    private Cuenta cuenta;
-    
-    @Column(nullable=false)
-    private BigDecimal precio;
-    
-    @Column(nullable= false)
-    private int cantidad;
-    
-    @Temporal(TemporalType.DATE)
-    @Column(nullable= false)
-    private LocalDate fecha;
-    
-    @ManyToOne
-    @JoinColumn(name= "tipo_transaccion", nullable= false)
-    private TipoTransaccion tipoTransaccion;
-    
-    @ManyToOne
-    @JoinColumn(name= "moneda", nullable=false)
-    private Moneda moneda;
 
-    //Constructors, Getters and Setters
+    @Column(nullable=false, precision=10, scale=2)
+    private BigDecimal precio;
+
+    @Column(nullable=false)
+    private int cantidad;
+
+    @Column(nullable=false)
+    private LocalDate fecha;
+
+    @ManyToOne
+    @JoinColumn(name="id_moneda", nullable=false)
+    private Moneda coin;
+
+    @ManyToOne
+    @JoinColumn(name="id_cuenta", nullable=false)
+    private Cuenta account;
+
+    @ManyToOne
+    @JoinColumn(name="id_producto", nullable=false)
+    private Producto product;
+
+    @ManyToOne
+    @JoinColumn(name="tipo_transaccion", nullable=false)
+    private TipoTransaccion transactionType;
+
     public Transaccion() {
     }
 
-    public Transaccion(int idTransaccion, Cuenta cuenta, BigDecimal precio, int cantidad, LocalDate fecha, TipoTransaccion tipoTransaccion, Moneda moneda) {
-        this.idTransaccion = idTransaccion;
-        this.cuenta = cuenta;
+    public Transaccion(BigDecimal precio, Producto product, TipoTransaccion transactionType, Cuenta account, Moneda coin, int cantidad, LocalDate fecha) {
         this.precio = precio;
+        this.product = product;
+        this.transactionType = transactionType;
+        this.account = account;
+        this.coin = coin;
         this.cantidad = cantidad;
         this.fecha = fecha;
-        this.tipoTransaccion = tipoTransaccion;
-        this.moneda = moneda;
     }
 
     public int getIdTransaccion() {
@@ -60,28 +58,12 @@ public class Transaccion {
         this.idTransaccion = idTransaccion;
     }
 
-    public Cuenta getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
-    }
-
     public BigDecimal getPrecio() {
         return precio;
     }
 
     public void setPrecio(BigDecimal precio) {
         this.precio = precio;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public LocalDate getFecha() {
@@ -92,22 +74,43 @@ public class Transaccion {
         this.fecha = fecha;
     }
 
-    public TipoTransaccion getTipoTransaccion() {
-        return tipoTransaccion;
+    public Cuenta getAccount() {
+        return account;
     }
 
-    public void setTipoTransaccion(TipoTransaccion tipoTransaccion) {
-        this.tipoTransaccion = tipoTransaccion;
+    public void setAccount(Cuenta account) {
+        this.account = account;
     }
 
-    public Moneda getMoneda() {
-        return moneda;
+    public Producto getProduct() {
+        return product;
     }
 
-    public void setMoneda(Moneda moneda) {
-        this.moneda = moneda;
+    public void setProduct(Producto product) {
+        this.product = product;
     }
-    
-    
-    
+
+    public TipoTransaccion getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(TipoTransaccion transactionType) {
+        this.transactionType = transactionType;
+    }
+
+    public Moneda getCoin() {
+        return coin;
+    }
+
+    public void setCoin(Moneda coin) {
+        this.coin = coin;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 }

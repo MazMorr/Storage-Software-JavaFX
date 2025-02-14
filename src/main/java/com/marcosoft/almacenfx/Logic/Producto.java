@@ -2,6 +2,7 @@
 package com.marcosoft.almacenfx.Logic;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
     
 /**
  *
@@ -9,7 +10,7 @@ import jakarta.persistence.*;
  */
 @Entity
 @Table(name="Producto")
-public class Producto {
+public class Producto implements Serializable{
     
     //Atributes
     @Id
@@ -27,9 +28,14 @@ public class Producto {
     //Constructors, Getters and Setters
     public Producto() {
     }
-    
-    public Producto(int idProducto, String nameProduct, Categoria categoria) {
-        this.idProducto = idProducto;
+
+    public Producto(String nameProduct, Categoria categoria) {
+        if (nameProduct == null || nameProduct.isEmpty()) {
+            throw new IllegalArgumentException("El nombre del producto no puede ser nulo o vacío.");
+        }
+        if (categoria == null) {
+            throw new IllegalArgumentException("La categoría no puede ser nula.");
+        }
         this.nameProduct = nameProduct;
         this.categoria = categoria;
     }
@@ -57,6 +63,6 @@ public class Producto {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    
-    
+
+
 }

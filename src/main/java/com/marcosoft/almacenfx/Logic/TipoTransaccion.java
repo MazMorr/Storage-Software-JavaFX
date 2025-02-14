@@ -5,13 +5,14 @@
 package com.marcosoft.almacenfx.Logic;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 /**
  *
- * @author Usuario
+ * @author MazMorr
  */
 @Entity
 @Table(name= "tipo_transaccion")
-class TipoTransaccion {
+public class TipoTransaccion implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idTipoTransaccion;

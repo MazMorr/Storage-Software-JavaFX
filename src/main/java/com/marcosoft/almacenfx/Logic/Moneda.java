@@ -5,6 +5,7 @@
 package com.marcosoft.almacenfx.Logic;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 /**
  *
  * @author MazMorr
@@ -12,7 +13,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="moneda")
-class Moneda {
+public class Moneda implements Serializable{
     @Id
     private String idMoneda;//cambiado a String para ajustarse al esquema de la BD
     

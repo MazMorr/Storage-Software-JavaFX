@@ -1,16 +1,19 @@
 package com.marcosoft.almacenfx.Logic;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Cuenta")
-public class Cuenta {
+@Table(name= "Cuenta")
+public class Cuenta implements Serializable{
+    //Attributes
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idCuenta;
     
     @Column(nullable = false, length = 20)
     private String name;
+    
     @Column(nullable=false, length=225)
     private String password;
 
@@ -23,12 +26,12 @@ public class Cuenta {
         this.password = password;
     }
 
-    public int getIdProduct() {
+    public int getIdCuenta() {
         return idCuenta;
     }
 
-    public void setIdProduct(int idProduct) {
-        this.idCuenta = idProduct;
+    public void setIdCuenta(int idCuenta) {
+        this.idCuenta = idCuenta;
     }
 
     public String getName() {
