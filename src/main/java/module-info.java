@@ -4,7 +4,6 @@ module com.marcosoft.almacenfx {
     exports com.marcosoft.almacenfx.Logic;
     exports com.marcosoft.almacenfx.Persistence;
     exports com.marcosoft.almacenfx.Persistence.exceptions;
-    
 
     // Leer los módulos que necesitas
     requires javafx.controls;
@@ -15,6 +14,6 @@ module com.marcosoft.almacenfx {
 
     // Abrir paquetes para acceso reflexivo (necesario para FXML)
     opens com.marcosoft.almacenfx to javafx.fxml;
-    opens com.marcosoft.almacenfx.Logic to javafx.base;
+    opens com.marcosoft.almacenfx.Logic to javafx.base, jakarta.persistence;
     opens com.marcosoft.almacenfx.Persistence to jakarta.persistence;
 }

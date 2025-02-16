@@ -24,7 +24,9 @@ public class Producto implements Serializable{
     @JoinColumn(name = "categoria", nullable=false)
     private Categoria categoria;
 
-    
+    @Version
+    private int version;
+
     //Constructors, Getters and Setters
     public Producto() {
     }

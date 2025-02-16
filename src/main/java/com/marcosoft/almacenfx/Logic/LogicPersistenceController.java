@@ -2,6 +2,8 @@
 package com.marcosoft.almacenfx.Logic;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import com.marcosoft.almacenfx.Persistence.PersistenceController;
 
 /**
@@ -59,11 +61,16 @@ public class LogicPersistenceController {
 
         controlPersis.addTransactionType(transactionType);
     }
-    public void addTransaction(){
+    public void addTransaction(LocalDate date, int amount, BigDecimal prize, Producto product, Cuenta account, Moneda coin, TipoTransaccion transactionType){
         Transaccion transaction = new Transaccion();
 
-        transaction.setFecha();
-        transaction.setCantidad();
+        transaction.setFecha(date);
+        transaction.setCantidad(amount);
+        transaction.setAccount(account);
+        transaction.setCoin(coin);
+        transaction.setPrecio(prize);
+        transaction.setProduct(product);
+        transaction.setTransactionType(transactionType);
 
         controlPersis.addTransaction(transaction);
     }

@@ -6,11 +6,14 @@ package com.marcosoft.almacenfx.Persistence;
 
 import com.marcosoft.almacenfx.Logic.Cuenta;
 import com.marcosoft.almacenfx.Persistence.exceptions.NonexistentEntityException;
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import java.io.Serializable;
+import jakarta.persistence.Query;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-
-import java.io.Serializable;
 import java.util.List;
 
 /**
