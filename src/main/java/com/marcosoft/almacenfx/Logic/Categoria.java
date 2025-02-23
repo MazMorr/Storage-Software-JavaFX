@@ -1,32 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.marcosoft.almacenfx.Logic;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
+
 /**
  *
  * @author MazMorr
  */
 @Entity
-@Table(name= "categoria")
-class Categoria {
-    //Attributes
+@Table(name = "categoria")
+public class Categoria implements Serializable {
+    // Attributes
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_CATEGORIA")
     private int idCategoria;
-    
-    @Column(nullable=false, length= 20)
+
+    @Column(name = "NOMBRE_CATEGORIA", nullable = false, length = 20)
     private String nombreCategoria;
 
-    
-    //Constructors, Getters and Setters
+    // Constructors, Getters and Setters
     public Categoria() {
     }
 
-    public Categoria(int idCategoria, String nombreCategoria) {
-        this.idCategoria = idCategoria;
+    public Categoria(String nombreCategoria) {
         this.nombreCategoria = nombreCategoria;
     }
 
@@ -45,7 +42,4 @@ class Categoria {
     public void setNombreCategoria(String nombreCategoria) {
         this.nombreCategoria = nombreCategoria;
     }
-    
-    
-        
 }

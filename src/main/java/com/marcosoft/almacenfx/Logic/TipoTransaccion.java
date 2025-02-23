@@ -5,42 +5,42 @@
 package com.marcosoft.almacenfx.Logic;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 /**
  *
- * @author Usuario
+ * @author MazMorr
  */
 @Entity
 @Table(name= "tipo_transaccion")
-class TipoTransaccion {
+public class TipoTransaccion implements Serializable{
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int idTipoTransaccion;
+    private int id_tipo_transaccion;
     
     @Column(nullable=false, length=15)
-    private String nombreTransaccion;
+    private String nombre_transaccion;
 
     public TipoTransaccion() {
     }
 
-    public TipoTransaccion(int idTipoTransaccion, String nombreTransaccion) {
-        this.idTipoTransaccion = idTipoTransaccion;
-        this.nombreTransaccion = nombreTransaccion;
+    public TipoTransaccion(int id_tipo_transaccion, String nombre_transaccion) {
+        this.id_tipo_transaccion = id_tipo_transaccion;
+        this.nombre_transaccion = nombre_transaccion;
     }
 
     public int getIdTipoTransaccion() {
-        return idTipoTransaccion;
+        return id_tipo_transaccion;
     }
 
-    public void setIdTipoTransaccion(int idTipoTransaccion) {
-        this.idTipoTransaccion = idTipoTransaccion;
+    public void setIdTipoTransaccion(int id_tipo_transaccion) {
+        this.id_tipo_transaccion = id_tipo_transaccion;
     }
 
     public String getNombreTransaccion() {
-        return nombreTransaccion;
+        return nombre_transaccion;
     }
 
-    public void setNombreTransaccion(String nombreTransaccion) {
-        this.nombreTransaccion = nombreTransaccion;
+    public void setNombreTransaccion(String nombre_transaccion) {
+        this.nombre_transaccion = nombre_transaccion;
     }
     
     

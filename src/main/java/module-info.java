@@ -1,21 +1,18 @@
 module com.marcosoft.almacenfx {
+    // Exportar los paquetes que contienen clases usadas por JavaFX o desde otros módulos.
+    exports com.marcosoft.almacenfx;
+    exports com.marcosoft.almacenfx.Logic;
+    exports com.marcosoft.almacenfx.Persistence;
+    exports com.marcosoft.almacenfx.Persistence.exceptions;
+
+    // Leer los módulos que necesitas
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.base;
-    requires java.sql;
-    requires org.eclipse.persistence.jpa; // Módulo de EclipseLink
-    requires jakarta.persistence; // Módulo de Jakarta Persistence
-    requires org.xerial.sqlitejdbc; // Módulo de SQLite
+    requires javafx.graphics;
+    requires eclipselink;
 
-    // Abre el paquete principal a javafx.fxml
+    // Abrir paquetes para acceso reflexivo (necesario para FXML)
     opens com.marcosoft.almacenfx to javafx.fxml;
-
-    // Abre el paquete de lógica (donde están las entidades) a JPA
-    opens com.marcosoft.almacenfx.Logic to org.eclipse.persistence.jpa, javafx.base;
-
-    // Exporta el paquete principal
-    exports com.marcosoft.almacenfx;
-
-    // Exporta el paquete de lógica para que otras clases dentro del módulo puedan acceder
-    exports com.marcosoft.almacenfx.Logic;
+    opens com.marcosoft.almacenfx.Logic to javafx.base, jakarta.persistence;
+    opens com.marcosoft.almacenfx.Persistence to jakarta.persistence;
 }

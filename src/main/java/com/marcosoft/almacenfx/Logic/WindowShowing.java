@@ -87,72 +87,55 @@ public class WindowShowing {
         this.registryFilterViewShowing = registryFilterViewShowing;
     }
     
-    public void displayAssistance(boolean viewShowing, String fxmlPath, String errorMessage, int auxView) throws IOException{
-        try{
-            if(!viewShowing){
-                FXMLLoader fxml = new FXMLLoader(getClass().getResource(fxmlPath));
+    public void displayAssistance(boolean viewShowing, String fxmlPath, String errorMessage, int auxView) throws IOException {
+        if (!viewShowing) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = fxmlLoader.load();
             
-                Parent root = fxml.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
+            stage.show();
             
-                Scene scene= new Scene(root); 
-                Stage stage = new Stage();
-                stage.initStyle(StageStyle.DECORATED); //Configura el estilo de la ventana
-                stage.setResizable(false);
-                stage.setScene(scene);
-                stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
-                openStages.add(stage);
-                
-                if(auxView==0){
+            // Configura el estado de la ventana según auxView
+            switch (auxView) {
+                case 0:
                     setSellViewShowing(true);
-                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Ventas");
-
-                    stage.setOnCloseRequest(eh ->{
-                        setSellViewShowing(false);
-                    });
-                } else if(auxView==1){
+                    stage.setOnCloseRequest(eh -> setSellViewShowing(false));
+                    break;
+                case 1:
                     setBuyViewShowing(true);
-                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Compras");
-                
-                    stage.setOnCloseRequest(eh ->{
-                        setBuyViewShowing(false);
-                    });       
-                } else if(auxView==2){
+                    stage.setOnCloseRequest(eh -> setBuyViewShowing(false));
+                    break;
+                case 2:
                     setFilterViewShowing(true);
-                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Filtro de Existencias");
-                
-                    stage.setOnCloseRequest(eh ->{
-                        setFilterViewShowing(false);
-                    });       
-                } else if(auxView==3){
+                    stage.setOnCloseRequest(eh -> setFilterViewShowing(false));
+                    break;
+                case 3:
                     setConfigurationShowing(true);
-                    stage.getIcons().add(new Image("file:resources/images/gears.png"));
-                    stage.setTitle("Ajustes");
-                        
-                    stage.setOnCloseRequest(eh ->{
-                        setConfigurationShowing(false);
-                    });       
-                } else if(auxView==4){
+                    stage.setTitle("Configuración");
+                    stage.setOnCloseRequest(eh -> setConfigurationShowing(false));
+                    break;
+                case 4:
                     setRegistryFilterViewShowing(true);
-                    stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
                     stage.setTitle("Filtro de Registros");
-                
-                    stage.setOnCloseRequest(eh ->{
-                        setRegistryFilterViewShowing(false);
-                    });       
-                }
-            
-                stage.showAndWait();                
-            }else{
-                Alert alert=new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Error al intentar abrir la ventana");
-                alert.setContentText(errorMessage);
-                alert.showAndWait();                
-            }            
-        }catch(Exception e){
-            e.printStackTrace();
+                    stage.setOnCloseRequest(eh -> setRegistryFilterViewShowing(false));
+                    break;
+                default:
+                    throw new IllegalArgumentException("Valor de auxView no válido: " + auxView);
+            }
+        } else {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Información");
+            alert.setHeaderText(null);
+            alert.setContentText(errorMessage);
+            alert.showAndWait();
         }
     }
     

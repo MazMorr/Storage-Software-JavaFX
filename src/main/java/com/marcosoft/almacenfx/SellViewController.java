@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package com.marcosoft.almacenfx;
 
 import java.net.URL;
@@ -19,7 +16,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Usuario
+ * @author MazMorr
  */
 public class SellViewController implements Initializable {
     

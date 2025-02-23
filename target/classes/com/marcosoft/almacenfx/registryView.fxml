@@ -98,14 +98,6 @@
             </HBox>
             <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="120.0" styleClass="index" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="88.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchToSupport" styleClass="btnIndex" stylesheets="@Styles.css" text="Soporte">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
                   <Button ellipsisString="" mnemonicParsing="false" onAction="#switchToExistency" styleClass="btnIndex" stylesheets="@Styles.css" text="Existencias">
                      <font>
                         <Font name="System Bold" size="17.0" />
@@ -115,6 +107,14 @@
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#switchToSupport" styleClass="btnIndex" stylesheets="@Styles.css" text="Soporte">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </Button>
                </children>
             </VBox>
