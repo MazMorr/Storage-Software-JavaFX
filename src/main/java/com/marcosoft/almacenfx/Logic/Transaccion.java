@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Transaccion implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int idTransaccion;
+    private int id_transaccion;
 
     @Column(nullable=false, precision=10, scale=2)
     private BigDecimal precio;
@@ -23,39 +23,39 @@ public class Transaccion implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="id_moneda", nullable=false)
-    private Moneda coin;
+    private Moneda moneda;
 
     @ManyToOne
     @JoinColumn(name="id_cuenta", nullable=false)
-    private Cuenta account;
+    private Cuenta id_cuenta;
 
     @ManyToOne
-    @JoinColumn(name="id_producto", nullable=false)
-    private Producto product;
+    @JoinColumn(name="id_product", nullable=false)
+    private Producto id_product;
 
     @ManyToOne
     @JoinColumn(name="tipo_transaccion", nullable=false)
-    private TipoTransaccion transactionType;
+    private TipoTransaccion tipo_transaccion;
 
     public Transaccion() {
     }
 
     public Transaccion(BigDecimal precio, Producto product, TipoTransaccion transactionType, Cuenta account, Moneda coin, int cantidad, LocalDate fecha) {
         this.precio = precio;
-        this.product = product;
-        this.transactionType = transactionType;
-        this.account = account;
-        this.coin = coin;
+        this.id_product = product;
+        this.tipo_transaccion = transactionType;
+        this.id_cuenta = account;
+        this.moneda = coin;
         this.cantidad = cantidad;
         this.fecha = fecha;
     }
 
     public int getIdTransaccion() {
-        return idTransaccion;
+        return id_transaccion;
     }
 
     public void setIdTransaccion(int idTransaccion) {
-        this.idTransaccion = idTransaccion;
+        this.id_transaccion = idTransaccion;
     }
 
     public BigDecimal getPrecio() {
@@ -75,35 +75,35 @@ public class Transaccion implements Serializable {
     }
 
     public Cuenta getAccount() {
-        return account;
+        return id_cuenta;
     }
 
     public void setAccount(Cuenta account) {
-        this.account = account;
+        this.id_cuenta = account;
     }
 
     public Producto getProduct() {
-        return product;
+        return id_product;
     }
 
     public void setProduct(Producto product) {
-        this.product = product;
+        this.id_product = product;
     }
 
     public TipoTransaccion getTransactionType() {
-        return transactionType;
+        return tipo_transaccion;
     }
 
     public void setTransactionType(TipoTransaccion transactionType) {
-        this.transactionType = transactionType;
+        this.tipo_transaccion = transactionType;
     }
 
     public Moneda getCoin() {
-        return coin;
+        return moneda;
     }
 
     public void setCoin(Moneda coin) {
-        this.coin = coin;
+        this.moneda = coin;
     }
 
     public int getCantidad() {

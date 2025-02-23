@@ -97,7 +97,12 @@
             </HBox>
             <VBox fx:id="vboxIndex" layoutX="-9.0" layoutY="88.0" styleClass="index" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="88.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchToSupport" styleClass="btnIndex" stylesheets="@Styles.css" text="Soporte">
+                  <Button disable="true" ellipsisString="" mnemonicParsing="false" styleClass="btnIndex" stylesheets="@Styles.css" text="Existencias">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#switchToRegistry" styleClass="btnIndex" stylesheets="@Styles.css" text="Registros">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -105,12 +110,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button disable="true" ellipsisString="" mnemonicParsing="false" styleClass="btnIndex" stylesheets="@Styles.css" text="Existencias">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#switchToRegistry" styleClass="btnIndex" stylesheets="@Styles.css" text="Registros">
+                  <Button mnemonicParsing="false" onAction="#switchToSupport" styleClass="btnIndex" stylesheets="@Styles.css" text="Soporte">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>

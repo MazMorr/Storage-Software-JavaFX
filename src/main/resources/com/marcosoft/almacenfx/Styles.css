@@ -33,6 +33,17 @@
     -fx-border-color: gray;
 }
 
+.btnGoBackCreateAccount{
+    -fx-background-color: #48e;
+    -fx-text-fill: #eee;
+    -fx-font-family: sans-serif;
+    -fx-font-size: 30;
+}
+.btnGoBackCreateAccount:hover{
+    -fx-cursor: hand;
+    -fx-opacity: 0.6;
+}
+
 .btnCreateAccount:hover{
     -fx-opacity: 0.6;
     -fx-text-fill: #eee;
@@ -75,7 +86,7 @@
 }
 .btnPrize{
     -fx-background-color: rgb(149, 183, 255);
-    -fx-font-size: 14;
+    -fx-font-size: 15;
     -fx-font-family: sans-serif;
     -fx-border-color: gray;
 }

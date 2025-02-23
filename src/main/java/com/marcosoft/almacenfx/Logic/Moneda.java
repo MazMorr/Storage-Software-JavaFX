@@ -15,33 +15,33 @@ import java.io.Serializable;
 @Table(name="moneda")
 public class Moneda implements Serializable{
     @Id
-    private String idMoneda;//cambiado a String para ajustarse al esquema de la BD
+    private String id_moneda;
     
     @Column(nullable= false, length= 25)
-    private String nombreMoneda;
+    private String nombre_moneda;
 
     public Moneda() {
     }
 
-    public Moneda(String idMoneda, String nombreMoneda) {
-        this.idMoneda = idMoneda;
-        this.nombreMoneda = nombreMoneda;
+    public Moneda(String id_moneda, String nombre_moneda) {
+        this.id_moneda = id_moneda;
+        this.nombre_moneda = nombre_moneda;
     }
 
     public String getIdMoneda() {
-        return idMoneda;
+        return id_moneda;
     }
 
-    public void setIdMoneda(String idMoneda) {
-        this.idMoneda = idMoneda;
+    public void setIdMoneda(String id_moneda) {
+        this.id_moneda = id_moneda;
     }
 
     public String getNombreMoneda() {
-        return nombreMoneda;
+        return nombre_moneda;
     }
 
-    public void setNombreMoneda(String nombreMoneda) {
-        this.nombreMoneda = nombreMoneda;
+    public void setNombreMoneda(String nombre_moneda) {
+        this.nombre_moneda = nombre_moneda;
     }
     
     

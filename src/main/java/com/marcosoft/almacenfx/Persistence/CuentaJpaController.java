@@ -25,7 +25,7 @@ public class CuentaJpaController implements Serializable {
         this.emf = emf;
     }
     public CuentaJpaController(){
-        emf = Persistence.createEntityManagerFactory("AlmacenSoftwarePU");
+        emf = Persistence.createEntityManagerFactory("AlmacenPU");
     }
 
     private EntityManagerFactory emf;
@@ -58,7 +58,7 @@ public class CuentaJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = cuenta.getIdCuenta();
+                int id = cuenta.getId_cuenta();
                 if (findCuenta(id) == null) {
                     throw new NonexistentEntityException("The billetera with id " + id + " no longer exists.");
                 }
@@ -79,7 +79,7 @@ public class CuentaJpaController implements Serializable {
             Cuenta cuenta;
             try {
                 cuenta = em.getReference(Cuenta.class, id);
-                cuenta.getIdCuenta();
+                cuenta.getId_cuenta();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The billetera with id " + id + " no longer exists.", enfe);
             }

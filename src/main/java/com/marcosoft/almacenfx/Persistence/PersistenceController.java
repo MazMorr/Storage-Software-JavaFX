@@ -10,7 +10,7 @@ public class PersistenceController {
     public PersistenceController() {
         try {
             // 1. Crear el EntityManagerFactory usando el nombre de la unidad de persistencia
-            emf = Persistence.createEntityManagerFactory("AlmacenSoftwarePU");
+            emf = Persistence.createEntityManagerFactory("AlmacenPU");
 
             // 2. Crear el EntityManager
             em = emf.createEntityManager();
@@ -26,7 +26,10 @@ public class PersistenceController {
         }
     }
 
-
+    // Método para obtener el EntityManager actual
+    private EntityManager getEntityManager() {
+        return em;
+    }
 
     // Métodos para Billetera
     public void addWallet(Billetera wallet) {
@@ -60,12 +63,15 @@ public class PersistenceController {
     }
 
     public Categoria findCategoryByName(String categoryName) {
+        EntityManager em = getEntityManager();
         try {
             return em.createQuery("SELECT c FROM Categoria c WHERE c.nombreCategoria = :name", Categoria.class)
-                    .setParameter("name", categoryName)
-                    .getSingleResult();
+                     .setParameter("name", categoryName)
+                     .getSingleResult();
         } catch (NoResultException e) {
-            return null; // Retorna null si no se encuentra la categoría
+            return null;
+        } finally {
+            em.close();
         }
     }
 
@@ -102,6 +108,22 @@ public class PersistenceController {
                 em.remove(account);
             }
         });
+    }
+
+    public boolean isAccountValid(String nombre, String contrasena) {
+        EntityManager em = getEntityManager();
+        try {
+            Long count = em.createQuery(
+                "SELECT COUNT(c) FROM Cuenta c WHERE c.nombre = :nombre AND c.contrasena = :contrasena", Long.class)
+                .setParameter("nombre", nombre)
+                .setParameter("contrasena", contrasena)
+                .getSingleResult();
+            return count > 0;
+        } catch (NoResultException e) {
+            return false;
+        } finally {
+            em.close();
+        }
     }
 
     // Métodos para Moneda
@@ -206,6 +228,7 @@ public class PersistenceController {
             throw new PersistenceException("Error en la transacción", e);
         }
     }
+
     private void close() {
         if (em != null && em.isOpen()) {
             em.close();

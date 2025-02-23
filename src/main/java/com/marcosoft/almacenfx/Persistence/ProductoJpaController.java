@@ -21,7 +21,7 @@ public class ProductoJpaController {
         this.emf = emf;
     }
     public ProductoJpaController(){
-        emf = Persistence.createEntityManagerFactory("AlmacenSoftwarePU");
+        emf = Persistence.createEntityManagerFactory("AlmacenPU");
     }
 
     private EntityManagerFactory emf;

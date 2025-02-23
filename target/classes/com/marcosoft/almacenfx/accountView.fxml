@@ -40,7 +40,7 @@
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <TextField promptText="Introduzca su nombre de usuario" />
+                  <TextField fx:id="txtFieldName" promptText="Introduzca su nombre de usuario" />
                   <Label styleClass="txtPassword" stylesheets="@Styles.css" text="Contraseña:">
                      <font>
                         <Font size="14.0" />
@@ -49,7 +49,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField promptText="Introduzca su contraseña" />
+                  <PasswordField fx:id="txtFieldPassword" promptText="Introduzca su contraseña" />
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="232.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#enterApplication" prefHeight="30.0" prefWidth="80.0" styleClass="btnCreateAccount" stylesheets="@Styles.css" text="Entrar">

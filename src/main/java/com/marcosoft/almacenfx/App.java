@@ -1,5 +1,6 @@
 package com.marcosoft.almacenfx;
 
+import com.marcosoft.almacenfx.Logic.LogicPersistenceController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +22,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("accountView"));
         stage.setScene(scene);
-        stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
+        stage.getIcons().add(new Image(getClass().getResource("images/RTS_logo.png").toString()));
         stage.setResizable(false);
         stage.setTitle("Sistema de cuentas");
         stage.centerOnScreen();
@@ -38,7 +39,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        //connect();
+        LogicPersistenceController lpcontroller = new LogicPersistenceController();
         launch();
     }
 

@@ -15,7 +15,7 @@ public class Billetera implements Serializable {
     //Attributes
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int idBilletera;
+    private int id_billetera;
     
     @ManyToOne
     @JoinColumn(name="id_cuenta", nullable=false)
@@ -28,18 +28,18 @@ public class Billetera implements Serializable {
     public Billetera() {
     }
 
-    public Billetera(int idBilletera, Cuenta cuenta, BigDecimal saldo) {
-        this.idBilletera = idBilletera;
+    public Billetera(int id_billetera, Cuenta cuenta, BigDecimal saldo) {
+        this.id_billetera = id_billetera;
         this.cuenta = cuenta;
         this.saldo = saldo;
     }
 
     public int getIdBilletera() {
-        return idBilletera;
+        return id_billetera;
     }
 
-    public void setIdBilletera(int idBilletera) {
-        this.idBilletera = idBilletera;
+    public void setIdBilletera(int id_billetera) {
+        this.id_billetera = id_billetera;
     }
 
     public Cuenta getCuenta() {

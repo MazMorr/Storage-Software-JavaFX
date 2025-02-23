@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Usuario
+ * @author MazMorr
  */
 public class FilterExistencyViewController implements Initializable {
 

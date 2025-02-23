@@ -4,6 +4,8 @@ import com.marcosoft.almacenfx.Logic.*;
 
 import java.math.BigDecimal;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import java.time.LocalDate;
@@ -15,23 +17,24 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class BuyViewController implements Initializable{
 
+    //FXMl declarations that are actually in use
     @FXML private Label txtDebugForm;
     @FXML private MenuItem miPersonal, miClean, miMilk, miCereal, miMeat, miDrink;
     @FXML private TextField txtFieldSubCategory, txtFieldPrize, txtFieldAmount, txtFieldName;
     @FXML private DatePicker txtFieldDate;
     @FXML private RadioMenuItem rmiCUP, rmiUSD, rmiEUR, rmiMLC;
     @FXML private ProgressIndicator percentageBar;
-    private ObservableList<Cuenta> products;
-    LogicPersistenceController lpcontroller = new LogicPersistenceController();
-    
-    private Cuenta product;
+
+    //Some variables that are important for the user interface
     double percentageDate=0,percentageName=0,percentageSubCategory=0,percentagePrize=0,percentageAmount=0;
     boolean dateIsSetted= false, nameIsSetted= false, subCategoryIsSetted=false, prizeIsSetted=false, amountIsSetted= false;
 
+    //The method that are controlling while are you typing in TexFieldName
     @FXML
     private void setTextChangedName(){
         txtDebugForm.setText("Nombre de su producto.");
@@ -46,6 +49,8 @@ public class BuyViewController implements Initializable{
             nameIsSetted=false;
         }
     }
+
+    //The method that are controlling while are you typing in TexFielSubCategory
     @FXML
     private void setTextChangedSubCategory(){
         txtDebugForm.setText("Categoría del producto. ");
@@ -60,27 +65,26 @@ public class BuyViewController implements Initializable{
         }
     }
 
+    //The method that are controlling while are you typing in TexFieldPrice
     @FXML
-    private void setTextChangedPrize() {
+    private void setTextChangedPrice() {
         txtDebugForm.setText("Recuerde seleccionar el tipo de moneda en el botón: Moneda.");
-
-        if(txtFieldPrize.getText().contains(" ")){
-            Alert alert= new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("No pueden Haber espacios");
-            alert.show();
-            txtFieldPrize.setText(txtFieldPrize.getText().replace(" ", ""));
-        }else if(txtFieldPrize.getLength()!= 0 && !prizeIsSetted) {
+        if (!txtFieldPrize.getText().matches("\\d*(\\.\\d*)?")) {
+            txtDebugForm.setText("Solo se permiten números decimales.");
+            // Eliminar caracteres no numéricos excepto el punto decimal
+            txtFieldPrize.setText(txtFieldPrize.getText().replaceAll("[^\\d.]", ""));
+        } else if (txtFieldPrize.getLength() != 0 && !prizeIsSetted) {
             percentagePrize += 0.2;
-            percentageBar.setProgress(percentageName+percentageDate+percentageSubCategory+percentageAmount+percentagePrize);
-            prizeIsSetted=true;
-        }else if(txtFieldPrize.getLength()==0 && percentagePrize == 0.2){
+            percentageBar.setProgress(percentageName + percentageDate + percentageSubCategory + percentageAmount + percentagePrize);
+            prizeIsSetted = true;
+        } else if (txtFieldPrize.getLength() == 0 && percentagePrize == 0.2) {
             percentagePrize -= 0.2;
-            percentageBar.setProgress(percentageName+percentageDate+percentageSubCategory+percentageAmount+percentagePrize);
-            prizeIsSetted=false;
+            percentageBar.setProgress(percentageName + percentageDate + percentageSubCategory + percentageAmount + percentagePrize);
+            prizeIsSetted = false;
         }
     }
 
-
+    //The method that are controlling while are you typing in TexFieldAmount or Quantity
     @FXML
     private void setTextChangedAmount(){
         txtDebugForm.setText("Cantidad de ese mismo producto.");
@@ -100,6 +104,7 @@ public class BuyViewController implements Initializable{
         }
     }
 
+    //The method that are controlling while are you typing in DatePicker
     @FXML
     private void setTextClickedDate(){
         txtDebugForm.setText("Seleccione la fecha en el botón de la derecha.");
@@ -114,15 +119,17 @@ public class BuyViewController implements Initializable{
         }
     }
 
+    //Methods that are listening when you touch their respective TextField (not implemented yet)
     @FXML
     private void setTextClickedAmount(){}
     @FXML
-    private void setTextClickedPrize(){}
+    private void setTextClickedPrice(){}
     @FXML
     private void setTextClickedSubCategory(){}
     @FXML
     private void setTextClickedName(){}
 
+    //This makes all at the begginig without close the window
     @FXML
     private void clean(){
         txtDebugForm.setText("");
@@ -139,7 +146,7 @@ public class BuyViewController implements Initializable{
         subCategoryIsSetted=false;
         prizeIsSetted=false;
         amountIsSetted= false;
-        percentageBar.setProgress(percentageName+percentageDate+percentageSubCategory+percentageAmount+percentagePrize);
+        percentageBar.setProgress(percentageName + percentageDate + percentageSubCategory + percentageAmount + percentagePrize);
     }
 
     @FXML
@@ -147,7 +154,7 @@ public class BuyViewController implements Initializable{
         try {
             // Validar campos obligatorios
             if (areFieldsEmpty(txtFieldSubCategory.getText(), txtFieldPrize.getText(),
-                    txtFieldAmount.getText(), txtFieldName.getText())) {
+                    txtFieldAmount.getText(), txtFieldName.getText()) && percentageBar.getProgress() !=1.0 ) {
                 txtDebugForm.setText("Por favor rellene todos los campos");
                 return;
             }
@@ -195,6 +202,7 @@ public class BuyViewController implements Initializable{
             txtDebugForm.setText("Error: " + e.getMessage());
         }
     }
+
     private Categoria findOrCreateCategory(String categoryName) {
         // Buscar si la categoría ya existe
         PersistenceController pc = new PersistenceController();
@@ -210,8 +218,7 @@ public class BuyViewController implements Initializable{
         return newCategory;
     }
 
-    private Transaccion createTransaction(Producto product, BigDecimal price,
-                                          int quantity, LocalDate date) {
+    private Transaccion createTransaction(Producto product, BigDecimal price, int quantity, LocalDate date) {
         // Obtener la moneda seleccionada
         Moneda currency = getSelectedCurrency();
 
@@ -223,10 +230,16 @@ public class BuyViewController implements Initializable{
         transaction.setFecha(date);
         transaction.setCoin(currency);
 
-        // Aquí deberías establecer el tipo de transacción y la cuenta
-        // según la lógica de tu negocio
-        // transaction.setTransactionType(...);
-        // transaction.setAccount(...);
+        // Establecer el tipo de transacción (ejemplo: "Compra")
+        TipoTransaccion transactionType = new TipoTransaccion();
+        transactionType.setNombreTransaccion("Compra");
+        transaction.setTransactionType(transactionType);
+
+        // Establecer la cuenta (ejemplo: cuenta predeterminada)
+        Cuenta account = new Cuenta();
+        account.setName("Cuenta Predeterminada");
+        account.setContrasena("password"); // Asegúrate de usar una contraseña segura
+        transaction.setAccount(account);
 
         return transaction;
     }
@@ -282,40 +295,45 @@ public class BuyViewController implements Initializable{
             miDrink.setVisible(true);            
         }
     }
-    
+
+
+    //Logic for set the texts predefined in subcategory textField
+    public void setSubcategory(String x){
+        txtFieldSubCategory.setText(x);
+        if(!subCategoryIsSetted){
+            subCategoryIsSetted=true;
+            percentageSubCategory+=0.2;
+            percentageBar.setProgress(percentageName+percentageDate+percentageSubCategory+percentageAmount+percentagePrize);
+        }
+    }
+
     @FXML private void setDrinkText(){
-        txtFieldSubCategory.setText("Bebida");
+        setSubcategory("Bebida");
+
     }           
     @FXML private void setMilkText(){
-        txtFieldSubCategory.setText("Lácteo");
+        setSubcategory("Lácteo");
     }   
     @FXML private void setPersonalText(){
-        txtFieldSubCategory.setText("Aseo Personal");
+        setSubcategory("Aseo Personal");
     }  
     @FXML private void setCleanText(){
-        txtFieldSubCategory.setText("Limpieza");
+        setSubcategory("Limpieza");
     }   
     @FXML private void setCerealText(){
-        txtFieldSubCategory.setText("Cereal");
+        setSubcategory("Cereal");
     }
     @FXML private void setMeatText(){
-        txtFieldSubCategory.setText("Cárnico");
+        setSubcategory("Cárnico");
     }
-    
+
+    //Initialize method
     @Override
     public void initialize(URL url, ResourceBundle rb){
         txtFieldDate.setValue(LocalDate.now());
         percentageDate += 0.2;
         percentageBar.setProgress(percentageName+percentageDate+percentageSubCategory+percentageAmount+percentagePrize);
         dateIsSetted=true;
-    }
-    
-    public Cuenta getProduct() {
-        return product;
-    }
-    
-    public void initAtributtes(ObservableList<Cuenta> products){
-        this.products=products;
     }
     
     @FXML

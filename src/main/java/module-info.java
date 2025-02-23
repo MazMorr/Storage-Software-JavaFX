@@ -9,8 +9,7 @@ module com.marcosoft.almacenfx {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
-    requires jakarta.persistence;
-    requires java.sql;
+    requires eclipselink;
 
     // Abrir paquetes para acceso reflexivo (necesario para FXML)
     opens com.marcosoft.almacenfx to javafx.fxml;

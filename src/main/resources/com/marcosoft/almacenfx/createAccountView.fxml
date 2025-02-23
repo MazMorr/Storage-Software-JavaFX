@@ -21,12 +21,15 @@
               <URL value="@Styles.css" />
           </stylesheets>
          <children>
-            <HBox alignment="CENTER" prefHeight="64.0" prefWidth="323.0" styleClass="slogan" stylesheets="@Styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER" layoutX="5.0" prefHeight="64.0" prefWidth="323.0" styleClass="slogan" stylesheets="@Styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label styleClass="title" stylesheets="@Styles.css" text="Regístrese">
                      <font>
                         <Font name="Constantia Bold Italic" size="40.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </Label>
                </children>
                <effect>
@@ -40,16 +43,7 @@
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="295.0" promptText="De 4-16 carácteres" />
-                  <Label text="Confirmar Nombre de Usuario:">
-                     <font>
-                        <Font name="System Italic" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="4.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField promptText="De 4-16 carácteres" />
+                  <TextField fx:id="txtFieldUserName" onKeyTyped="#txtFieldTypingUserName" prefHeight="25.0" prefWidth="295.0" promptText="De 4-16 carácteres" />
                   <Label text="Contraseña:">
                      <font>
                         <Font name="System Italic" size="14.0" />
@@ -58,7 +52,7 @@
                         <Insets top="4.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField promptText="De 4-8 carácteres " />
+                  <TextField fx:id="txtFieldPassword" onKeyTyped="#txtFieldTypingPassword" promptText="De 4-10 carácteres " />
                   <Label text="Confirmar Contraseña:">
                      <font>
                         <Font name="System Italic" size="14.0" />
@@ -66,15 +60,27 @@
                      <VBox.margin>
                         <Insets top="4.0" />
                      </VBox.margin></Label>
-                  <PasswordField fx:id="passFieldPasswordConfirmed" promptText="De 4-8 carácteres" />
+                  <PasswordField fx:id="passFieldPasswordConfirmed" onKeyTyped="#txtFieldTypingPassword" promptText="De 4-10 carácteres" />
+                  <Label text="Compañía Asociada (OPCIONAL):">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtFieldPassword1" onKeyTyped="#txtFieldTypingPassword" promptText="De 4-16 carácteres " />
                </children>
             </VBox>
-            <Label layoutX="28.0" layoutY="328.0" text="Advertencia: En caso de olvidar su contraseña perderá toda su información" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
+            <Label layoutX="28.0" layoutY="328.0" text="Advertencia: En caso de olvidar su contraseña perderá toda su información" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
             <VBox layoutX="267.0" layoutY="82.0" prefHeight="200.0" prefWidth="154.0">
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="329.0">
                      <children>
-                        <ProgressIndicator prefHeight="36.0" prefWidth="42.0" progress="0.0">
+                        <ProgressIndicator fx:id="percentageBar" prefHeight="36.0" prefWidth="42.0" progress="0.0">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -92,13 +98,18 @@
                         <Insets top="8.0" />
                      </VBox.margin>
                   </HBox>
-                  <Label alignment="TOP_CENTER" prefHeight="132.0" prefWidth="154.0" text="Ingrese su nombre de usuario" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+                  <Label fx:id="txtDebugForm" alignment="TOP_CENTER" prefHeight="132.0" prefWidth="154.0" text="Ingrese su nombre de usuario" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
+            <Button layoutX="-17.0" layoutY="11.0" mnemonicParsing="false" onAction="#goBack" prefHeight="63.0" styleClass="btnGoBackCreateAccount" stylesheets="@Styles.css" text="&lt;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

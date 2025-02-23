@@ -22,7 +22,7 @@ public class MonedaJpaController implements Serializable {
         this.emf = emf;
     }
     public MonedaJpaController(){
-        emf = Persistence.createEntityManagerFactory("AlmacenSoftwarePU");
+        emf = Persistence.createEntityManagerFactory("AlmacenPU");
     }
 
     private EntityManagerFactory emf;

@@ -3,6 +3,8 @@ package com.marcosoft.almacenfx;
 import com.marcosoft.almacenfx.Logic.WindowShowing;
 import java.io.IOException;
 import java.util.Optional;
+
+import com.marcosoft.almacenfx.Persistence.PersistenceController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +14,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class AccountViewController{
     private final WindowShowing windowShowing;
+    @FXML private TextField txtFieldPassword, txtFieldName;
+    PersistenceController pController = new PersistenceController();
     
     public AccountViewController(){
         windowShowing= new WindowShowing();
@@ -37,7 +42,7 @@ public class AccountViewController{
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.getIcons().add(new Image("file:resources/images/RTS_logo.png"));
+            stage.getIcons().add(new Image(getClass().getResource("images/RTS_logo.png").toString()));
             stage.setTitle("Almacen");
             stage.centerOnScreen();
             stage.setResizable(false);

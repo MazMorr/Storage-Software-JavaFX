@@ -23,7 +23,7 @@ public class TransaccionJpaController implements Serializable {
         this.emf = emf;
     }
     public TransaccionJpaController(){
-        emf = Persistence.createEntityManagerFactory("AlmacenSoftwarePU");
+        emf = Persistence.createEntityManagerFactory("AlmacenPU");
     }
     private EntityManagerFactory emf = null;
 

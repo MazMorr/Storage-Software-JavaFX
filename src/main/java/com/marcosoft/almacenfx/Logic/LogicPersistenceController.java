@@ -1,4 +1,3 @@
-
 package com.marcosoft.almacenfx.Logic;
 
 import java.math.BigDecimal;
@@ -12,7 +11,7 @@ import com.marcosoft.almacenfx.Persistence.PersistenceController;
  */
 public class LogicPersistenceController {
     
-    PersistenceController controlPersis= new PersistenceController();
+    PersistenceController controlPersis = new PersistenceController();
     
     public void addWallet(Cuenta account, BigDecimal balance) {
         Billetera wallet = new Billetera();
@@ -22,48 +21,43 @@ public class LogicPersistenceController {
        
         controlPersis.addWallet(wallet);
     }
-    public void addCategory(String nombreCategoria){
-         Categoria category = new Categoria();
 
-         category.setNombreCategoria(nombreCategoria);
-
-         controlPersis.addCategory(category);
+    public void addCategory(String nombreCategoria) {
+        Categoria category = new Categoria();
+        category.setNombreCategoria(nombreCategoria);
+        controlPersis.addCategory(category);
     }
-    public void addAccount(String name, String password){
+
+    public void addAccount(String name, String password) {
         Cuenta account = new Cuenta();
-
         account.setName(name);
-        account.setPassword(password);
-
+        account.setContrasena(password);
         controlPersis.addAccount(account);
     }
-    public void addCoin(String idCoin, String coinName){
-        Moneda coin = new Moneda();
 
+    public void addCoin(String idCoin, String coinName) {
+        Moneda coin = new Moneda();
         coin.setIdMoneda(idCoin);
         coin.setNombreMoneda(coinName);
-
         controlPersis.addCoin(coin);
     }
-    public void addProduct(String name, Categoria category){
-        Producto product= new Producto();
 
+    public void addProduct(String name, Categoria category) {
+        Producto product = new Producto();
         product.setNameProduct(name);
         product.setCategoria(category);
-
         controlPersis.addProduct(product);
     }
-    public void addTransactionType(int idTransaction, String name){
-        TipoTransaccion transactionType = new TipoTransaccion();
 
+    public void addTransactionType(int idTransaction, String name) {
+        TipoTransaccion transactionType = new TipoTransaccion();
         transactionType.setNombreTransaccion(name);
         transactionType.setIdTipoTransaccion(idTransaction);
-
         controlPersis.addTransactionType(transactionType);
     }
-    public void addTransaction(LocalDate date, int amount, BigDecimal prize, Producto product, Cuenta account, Moneda coin, TipoTransaccion transactionType){
-        Transaccion transaction = new Transaccion();
 
+    public void addTransaction(LocalDate date, int amount, BigDecimal prize, Producto product, Cuenta account, Moneda coin, TipoTransaccion transactionType) {
+        Transaccion transaction = new Transaccion();
         transaction.setFecha(date);
         transaction.setCantidad(amount);
         transaction.setAccount(account);
@@ -71,7 +65,6 @@ public class LogicPersistenceController {
         transaction.setPrecio(prize);
         transaction.setProduct(product);
         transaction.setTransactionType(transactionType);
-
         controlPersis.addTransaction(transaction);
     }
 }

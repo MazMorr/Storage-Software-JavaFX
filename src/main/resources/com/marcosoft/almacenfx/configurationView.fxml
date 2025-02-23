@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
@@ -10,15 +11,15 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="180.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcosoft.almacenfx.ConfigurationViewController">
+<StackPane prefHeight="180.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcosoft.almacenfx.ConfigurationViewController">
    <children>
       <AnchorPane>
          <children>
-            <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="101.0" prefHeight="153.0" prefWidth="330.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="101.0" prefHeight="160.0" prefWidth="313.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <MenuButton fx:id="mbLanguage" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Idioma" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
+                        <MenuButton fx:id="mbLanguage" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Idioma" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
                           <items>
                               <RadioMenuItem mnemonicParsing="false" onAction="#switchLanguageToSpanish" selected="true" text="Español">
                                  <toggleGroup>
@@ -28,26 +29,22 @@
                               <RadioMenuItem mnemonicParsing="false" onAction="#switchLanguageToEnglish" text="English" toggleGroup="$rdmiLanguage" />
                           </items>
                         </MenuButton>
-                        <MenuButton fx:id="mbUsers" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Cuentas" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
-                          <items>
-                              <MenuItem fx:id="miChangeUser" mnemonicParsing="false" text="Crear Cuenta" />
-                              <RadioMenuItem mnemonicParsing="false" text="-Usuario actual-" />
-                          </items>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Cerrar Sesión" textFill="#eeeeee">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
-                        </MenuButton>
+                        </Button>
                      </children>
                   </HBox>
                   <HBox>
                      <children>
-                        <MenuButton alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Importar" textFill="#eeeeee">
+                        <MenuButton alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Importar" textFill="#eeeeee">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Action 1" />
                             <MenuItem mnemonicParsing="false" text="Action 2" />
                           </items>
                         </MenuButton>
-                        <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Exportar" textAlignment="CENTER" textFill="#eeeeee">
+                        <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Exportar" textAlignment="CENTER" textFill="#eeeeee">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Exportar Base de Datos" />
                             <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -59,7 +56,7 @@
                      </children></HBox>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <MenuButton fx:id="mbAppTheme" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Tema" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
+                        <MenuButton fx:id="mbAppTheme" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Tema" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
                           <items>
                               <RadioMenuItem fx:id="rdmiLightTheme" mnemonicParsing="false" selected="true" text="Modo Claro">
                                  <toggleGroup>
@@ -69,7 +66,7 @@
                               <RadioMenuItem fx:id="rdmiDarkTheme" mnemonicParsing="false" text="Modo Oscuro" toggleGroup="$rdmiTheme" />
                           </items>
                         </MenuButton>
-                        <MenuButton fx:id="mbResolution" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Resolución" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
+                        <MenuButton fx:id="mbResolution" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" styleClass="btnPrize" stylesheets="@Styles.css" text="Resolución" textAlignment="CENTER" textFill="#eeeeee" wrapText="true" HBox.hgrow="ALWAYS">
                           <items>
                               <RadioMenuItem mnemonicParsing="false" selected="true" text="800x600">
                                  <toggleGroup>

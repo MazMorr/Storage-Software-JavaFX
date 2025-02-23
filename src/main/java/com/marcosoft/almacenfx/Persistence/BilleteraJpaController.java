@@ -23,7 +23,7 @@ public class BilleteraJpaController implements Serializable {
         this.emf = emf;
     }
     public BilleteraJpaController(){
-        emf = Persistence.createEntityManagerFactory("AlmacenSoftwarePU");
+        emf = Persistence.createEntityManagerFactory("AlmacenPU");
     }
     
     private EntityManagerFactory emf;
